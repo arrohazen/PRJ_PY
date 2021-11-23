@@ -19,6 +19,8 @@ if Quest1 == "Oui":
     print("Votre répertoire contient :", fichiers)
    
     renommage()
+    
+    print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
 
 elif Quest1 == "Non":
     os.chdir("/home/arrohazen/Documents/cy/fichierpy")
