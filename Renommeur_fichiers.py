@@ -10,3 +10,4 @@ print("Votre répertoire contient :", fichiers)
 
 for fichier in fichiers:
     os.rename(fichier, fichier.replace(" ", "-").lower())
+#PREMIERE mODIF
