@@ -11,7 +11,9 @@ if Quest1 == "Oui":
     os.chdir(Quest2)
     emplacement = os.getcwd()
     fichiers = os.listdir(emplacement)
+   
     print("Votre répertoire contient :", fichiers)
+   
     for fichier in fichiers:
      os.rename(fichier, fichier.replace(" ", "-").lower())
 
@@ -28,6 +30,8 @@ elif Quest1 == "Non":
         
     for fichier in fichiers:
      os.rename(fichier, fichier.replace(" ", "-").lower())
+
+    print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
 
 else :
     print("Choisissez Oui ou Non!")
