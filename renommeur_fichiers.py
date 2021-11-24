@@ -39,4 +39,3 @@ elif Quest1 == "Non":
 else :
     print("Choisissez Oui ou Non!")
 
-#testchangements_g
