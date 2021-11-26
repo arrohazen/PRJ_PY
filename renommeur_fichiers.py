@@ -11,8 +11,8 @@ def renommage() :
 
 if Quest1 == "Oui":
     print("Spécifiez le repertoire voulu (ex : /home/user/dossier) : ")
-    Quest2 = input()
-    os.chdir(Quest2)
+    Quest1 = input()
+    os.chdir(Quest1)
     emplacement = os.getcwd()
     fichiers = os.listdir(emplacement)
    
