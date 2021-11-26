@@ -23,7 +23,7 @@ if Quest1 == "Oui":
     print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
 
 elif Quest1 == "Non":
-    os.chdir("/home/arrohazen/Documents/cy/fichierpy")
+    os.chdir("/home/arrohazen/Documents/")
     emplacement = os.getcwd()
     
     print("Le repertoire par défaut sera choisi : ", emplacement)
