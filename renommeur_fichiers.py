@@ -3,16 +3,16 @@ import os
 print("Vous êtes situé ici :", os.getcwd())
 
 print("Souhaitez-vous vous déplacer dans un autre répertoire? Oui/Non : ")
-Quest1 = input()
+rep_quest = input()
 
 def renommage() :
     for fichier in fichiers:
      os.rename(fichier, fichier.replace(" ", "-").lower())
 
-if Quest1 == "Oui":
+if rep_quest == "Oui":
     print("Spécifiez le repertoire voulu (ex : /home/user/dossier) : ")
-    Quest1 = input()
-    os.chdir(Quest1)
+    rep_quest = input()
+    os.chdir(rep_quest)
     emplacement = os.getcwd()
     fichiers = os.listdir(emplacement)
    
@@ -22,7 +22,7 @@ if Quest1 == "Oui":
     
     print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
 
-elif Quest1 == "Non":
+elif rep_quest == "Non":
     os.chdir("/home/arrohazen/Documents/")
     emplacement = os.getcwd()
     
