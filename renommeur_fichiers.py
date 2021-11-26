@@ -10,8 +10,7 @@ def renommage() :
      os.rename(fichier, fichier.replace(" ", "-").lower())
 
 if rep_quest == "Oui":
-    print("Spécifiez le repertoire voulu (ex : /home/user/dossier) : ")
-    rep_quest = input()
+    rep_quest = str(input("Spécifiez le repertoire voulu (ex : /home/user/dossier) : "))
     os.chdir(rep_quest)
     emplacement = os.getcwd()
     fichiers = os.listdir(emplacement)
