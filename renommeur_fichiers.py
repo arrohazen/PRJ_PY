@@ -15,7 +15,6 @@ def renommage() :
      os.rename(fichier, fichier.replace(" ", "-").lower())
 
 if rep_quest == "Oui":
-
     emplacement = demander_repertoire()
     fichiers = os.listdir(emplacement)
    
@@ -26,7 +25,8 @@ if rep_quest == "Oui":
     print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
 
 elif rep_quest == "Non":
-    os.chdir("/home/arrohazen/Documents/")
+    
+    os.chdir("/home/arrohazen/Documents/cy/fichierpy/")
     emplacement = os.getcwd()
     
     print("Le repertoire par défaut sera choisi : ", emplacement)
