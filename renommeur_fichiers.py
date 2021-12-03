@@ -25,7 +25,7 @@ if rep_quest == "Oui":
     print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
 
 elif rep_quest == "Non":
-    
+
     os.chdir("/home/arrohazen/Documents/cy/fichierpy/")
     emplacement = os.getcwd()
     
