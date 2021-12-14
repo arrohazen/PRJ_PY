@@ -9,7 +9,7 @@ def demander_repertoire():
     rep_quest = str(input("Spécifiez le repertoire voulu (ex : /home/user/dossier) : "))
     os.chdir(rep_quest)
     localisation = os.getcwd()
-#test
+
 def renommage() :
     for fichier in fichiers:
      os.rename(fichier, fichier.replace(" ", "-").lower())
