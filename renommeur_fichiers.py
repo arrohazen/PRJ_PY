@@ -10,13 +10,13 @@ rep_quest = input()
 user = getpass.getuser()
 
 def demander_repertoire():
-    rep_quest = str(input("Spécifiez le repertoire voulu (ex : /home/user/dossier) : "))
+    rep_quest = str(input("Spécifiez le repertoire voulu (par défaut : /home/user/Téléchargements/) : "))
     os.chdir(rep_quest)
     localisation = os.getcwd()
 
-def renommage() :
+def renommage(fichiers) :
     for fichier in fichiers:
-     os.rename(fichier, fichier.replace(" ", "-").lower())
+        os.rename(fichier, fichier.replace(" ", "-").lower())
 
 def trier_fichiers():
     emplacement_dest = os.environ['HOME']
@@ -64,7 +64,7 @@ elif rep_quest == "Non":
 
     print("Votre répertoire contient :", fichiers)
         
-    renommage()
+    renommage(fichiers)
 
     print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
 
