@@ -1,6 +1,7 @@
 import os
 import shutil
 import getpass
+
 print("Bienvenue dans le script de renommage et de tri de fichiers! ")
 print("Vous êtes situé ici :", os.getcwd())
 
