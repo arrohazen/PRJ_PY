@@ -1,7 +1,7 @@
 import os
 import shutil
 import getpass
-
+print("Bienvenue dans le script de renommage et de tri de fichiers! ")
 print("Vous êtes situé ici :", os.getcwd())
 
 print("Souhaitez-vous vous déplacer dans un autre répertoire? Oui/Non : ")
@@ -21,9 +21,9 @@ def trier_fichiers():
     emplacement_dest = os.environ['HOME']
     repertoire_noms = ['Images', 'archives', 'Musique' , 'Paquets_Debian']
     
-    for repertoire in range(0,4):
-        if not os.path.exists(emplacement_dest+repertoire_noms[repertoire]):
-         os.makedirs(emplacement_dest+repertoire_noms[repertoire])
+    for repertoire in repertoire_noms:
+        if not os.path.exists(emplacement_dest+repertoire):
+         os.makedirs(emplacement_dest+repertoire)
 
     for fichier in fichiers:
         if ".jpg" in fichier and not os.path.exists(emplacement_dest+'Images/'+fichier):
