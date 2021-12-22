@@ -25,19 +25,19 @@ def trier_fichiers():
         if not os.path.exists(emplacement_dest+repertoire_noms[repertoire]):
          os.makedirs(emplacement_dest+repertoire_noms[repertoire])
 
-        for fichier in fichiers:
-            if ".jpg" in fichier and not os.path.exists(emplacement_dest+'Images/'+fichier):
-                shutil.move(emplacement+"/"+fichier, emplacement_dest+'Images/'+fichier)
-            if ".jpeg" in fichier and not os.path.exists(emplacement_dest+'Images/'+fichier):
-                shutil.move(emplacement+"/"+fichier, emplacement_dest+'Images/'+fichier)
-            if ".png" in fichier and not os.path.exists(emplacement_dest+'Images/'+fichier):
-                shutil.move(emplacement+"/"+fichier, emplacement_dest+'Images/'+fichier)
-            if ".zip" in fichier and not os.path.exists(emplacement_dest+'archives/'+fichier):
-                shutil.move(emplacement+"/"+fichier, emplacement_dest+'archives/'+fichier)
-            if ".mp3" in fichier and not os.path.exists(emplacement_dest+'Musique/'+fichier):
-                shutil.move(emplacement+"/"+fichier, emplacement_dest+'Musique/'+fichier)
-            if ".deb" in fichier and not os.path.exists(emplacement_dest+'Paquets_Debian/'+fichier):
-                shutil.move(emplacement+"/"+fichier, emplacement_dest+'Paquets_Debian/'+fichier)
+    for fichier in fichiers:
+        if ".jpg" in fichier and not os.path.exists(emplacement_dest+'Images/'+fichier):
+            shutil.move(emplacement+"/"+fichier, emplacement_dest+'Images/'+fichier)
+        if ".jpeg" in fichier and not os.path.exists(emplacement_dest+'Images/'+fichier):
+            shutil.move(emplacement+"/"+fichier, emplacement_dest+'Images/'+fichier)
+        if ".png" in fichier and not os.path.exists(emplacement_dest+'Images/'+fichier):
+            shutil.move(emplacement+"/"+fichier, emplacement_dest+'Images/'+fichier)
+        if ".zip" in fichier and not os.path.exists(emplacement_dest+'archives/'+fichier):
+            shutil.move(emplacement+"/"+fichier, emplacement_dest+'archives/'+fichier)
+        if ".mp3" in fichier and not os.path.exists(emplacement_dest+'Musique/'+fichier):
+            shutil.move(emplacement+"/"+fichier, emplacement_dest+'Musique/'+fichier)
+        if ".deb" in fichier and not os.path.exists(emplacement_dest+'Paquets_Debian/'+fichier):
+            shutil.move(emplacement+"/"+fichier, emplacement_dest+'Paquets_Debian/'+fichier)
 
 if rep_quest == "Oui":
     emplacement = demander_repertoire()
