@@ -51,6 +51,7 @@ if rep_quest == "Oui":
 
     trier_fichiers()
 
+    print("Vos fichiers ont été triés : Musique, archives, Images... vers votre dossier personnel")
 elif rep_quest == "Non":
 
     os.chdir("/home/"+user+"/Téléchargements/")
@@ -67,6 +68,8 @@ elif rep_quest == "Non":
     print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
 
     trier_fichiers()
+
+    print("Vos fichiers ont été triés : Musique, archives, Images... vers votre dossier personnel")
 
 else :
     print("Choisissez Oui ou Non!")
