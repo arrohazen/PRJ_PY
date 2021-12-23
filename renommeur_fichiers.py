@@ -46,7 +46,7 @@ if rep_quest == "Oui":
    
     print("Votre répertoire contient :", fichiers)
    
-    renommage()
+    renommage(fichiers)
     
     print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
 
