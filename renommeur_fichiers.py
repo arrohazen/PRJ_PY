@@ -19,7 +19,7 @@ def renommage(fichiers) :
         os.rename(fichier, fichier.replace(" ", "-").lower())
 
 def trier_fichiers():
-    emplacement_dest = os.environ['HOME']
+    emplacement_dest = "home"+user+"/"
     repertoire_noms = ['Images', 'archives', 'Musique' , 'Paquets_Debian']
     
     for repertoire in repertoire_noms:
