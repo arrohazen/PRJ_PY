@@ -1,76 +1,118 @@
 import os
 import shutil
 import getpass
+import argparse
 
-print("Bienvenue dans le script de renommage et de tri de fichiers! ")
+parser = argparse.ArgumentParser(description= 'Choose a function (sorter, renamer, )')
+parser.add_argument( '-s', '--sorter',  action='store_true', help='Sorter of files by extension')
+parser.add_argument( '-r', '--rename',  action='store_true', help='Renaming files : replace spaces to -')
+parser.add_argument( '-l', '--location',  type=str, help='Giving a directory location')
+
+args = parser.parse_args()
+
+print("Bienvenue dans le script de renamer et de tri de fil! ")
 print("Vous êtes situé ici :", os.getcwd())
 
-print("Souhaitez-vous vous déplacer dans un autre répertoire? Oui/Non : ")
-rep_quest = input()
+#print("Souhaitez-vous vous déplacer dans un autre répertoire? Oui/Non : ")
+#rep_quest = input()
 user = getpass.getuser()
 
-def demander_repertoire():
-    rep_quest = str(input("Spécifiez le repertoire voulu (par défaut : /home/user/Téléchargements/) : "))
+def ask_dir():
+    rep_quest = str(input("Spécifiez le directory voulu (par défaut : /home/user/Téléchargements/) : "))
     os.chdir(rep_quest)
     localisation = os.getcwd()
 
-def renommage(fichiers) :
-    for fichier in fichiers:
-        os.rename(fichier, fichier.replace(" ", "-").lower())
+def renamer(files) :
+    os.chdir(location)
+    for file in files:
+        os.rename(file, file.replace(" ", "-").lower())
 
-def trier_fichiers():
-    emplacement_dest = "home"+user+"/"
-    repertoire_noms = ['Images', 'archives', 'Musique' , 'Paquets_Debian']
+def trier_files():
+    location_dest = "/home/"+user+"/"
+    directory_names = ['Images', 'archives', 'Musique' , 'Paquets_Debian']
     
-    for repertoire in repertoire_noms:
-        if not os.path.exists(emplacement_dest+repertoire):
-         os.makedirs(emplacement_dest+repertoire)
+    for directory in directory_names:
+        if not os.path.exists(location_dest+directory):
+         os.makedirs(location_dest+directory)
 
-    for fichier in fichiers:
-        if ".jpg" in fichier and not os.path.exists(emplacement_dest+'Images/'+fichier):
-            shutil.move(emplacement+"/"+fichier, emplacement_dest+'Images/'+fichier)
-        if ".jpeg" in fichier and not os.path.exists(emplacement_dest+'Images/'+fichier):
-            shutil.move(emplacement+"/"+fichier, emplacement_dest+'Images/'+fichier)
-        if ".png" in fichier and not os.path.exists(emplacement_dest+'Images/'+fichier):
-            shutil.move(emplacement+"/"+fichier, emplacement_dest+'Images/'+fichier)
-        if ".zip" in fichier and not os.path.exists(emplacement_dest+'archives/'+fichier):
-            shutil.move(emplacement+"/"+fichier, emplacement_dest+'archives/'+fichier)
-        if ".mp3" in fichier and not os.path.exists(emplacement_dest+'Musique/'+fichier):
-            shutil.move(emplacement+"/"+fichier, emplacement_dest+'Musique/'+fichier)
-        if ".deb" in fichier and not os.path.exists(emplacement_dest+'Paquets_Debian/'+fichier):
-            shutil.move(emplacement+"/"+fichier, emplacement_dest+'Paquets_Debian/'+fichier)
+    for file in files:
+        if ".jpg" in file and not os.path.exists(location_dest+'Images/'+file):
+            shutil.move(location+"/"+file, location_dest+'Images/'+file)
+        if ".jpeg" in file and not os.path.exists(location_dest+'Images/'+file):
+            shutil.move(location+"/"+file, location_dest+'Images/'+file)
+        if ".png" in file and not os.path.exists(location_dest+'Images/'+file):
+            shutil.move(location+"/"+file, location_dest+'Images/'+file)
+        if ".zip" in file and not os.path.exists(location_dest+'archives/'+file):
+            shutil.move(location+"/"+file, location_dest+'archives/'+file)
+        if ".mp3" in file and not os.path.exists(location_dest+'Musique/'+file):
+            shutil.move(location+"/"+file, location_dest+'Musique/'+file)
+        if ".deb" in file and not os.path.exists(location_dest+'Paquets_Debian/'+file):
+            shutil.move(location+"/"+file, location_dest+'Paquets_Debian/'+file)
 
-if rep_quest == "Oui":
-    emplacement = demander_repertoire()
-    fichiers = os.listdir(emplacement)
-   
-    print("Votre répertoire contient :", fichiers)
-   
-    renommage(fichiers)
+if args.rename:
+
+    location = args.location
+
+    files = os.listdir(location)
     
-    print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
+    print("Votre répertoire contient :", files)
+   
+    renamer(files)
+    
+    print("Vos files ont été renommés : ", os.listdir(location)) 
 
-    trier_fichiers()
+elif args.sorter and args.location:
 
-    print("Vos fichiers ont été triés : Musique, archives, Images... vers votre dossier personnel")
-elif rep_quest == "Non":
+    location = args.location
+    os.chdir(location)
+    print(location)
+    print("Le directory par défaut sera choisi : ", location)
+
+    files = os.listdir(location)
+
+    print("Votre répertoire contient :", files)
+        
+    #renamer(files)
+
+    #print("Vos files ont été renommés : ", os.listdir(location)) 
+
+    trier_files()
+
+    print("Vos files ont été triés : Musique, archives, Images... vers votre dossier personnel")
+
+
+elif args.sorter and not args.location:
 
     os.chdir("/home/"+user+"/Téléchargements/")
-    emplacement = os.getcwd()
-    print(emplacement)
-    print("Le repertoire par défaut sera choisi : ", emplacement)
+    location = os.getcwd()
+    print(location)
+    print("Le directory par défaut sera choisi : ", location)
 
-    fichiers = os.listdir(emplacement)
+    files = os.listdir(location)
 
-    print("Votre répertoire contient :", fichiers)
+    print("Votre répertoire contient :", files)
         
-    renommage(fichiers)
+    #renamer(files)
 
-    print("Vos fichiers ont été renommés : ", os.listdir(emplacement)) 
+    #print("Vos files ont été renommés : ", os.listdir(location)) 
 
-    trier_fichiers()
+    trier_files()
 
-    print("Vos fichiers ont été triés : Musique, archives, Images... vers votre dossier personnel")
+    print("Vos files ont été triés : Musique, archives, Images... vers votre dossier personnel")
 
-else :
-    print("Choisissez Oui ou Non!")
+elif args.rename and not args.location:
+    
+    location = "/home/"+user+"/Téléchargements/"
+
+    os.chdir(location)
+
+    files = os.listdir(location)
+    
+    print("Votre répertoire contient :", files)
+   
+    renamer(files)
+    
+    print("Vos files ont été renommés : ", os.listdir(location)) 
+
+else:
+    print("Aucun argument choisi !")
