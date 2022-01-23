@@ -2,6 +2,7 @@ import os
 import shutil
 import getpass
 import argparse
+import pathlib
 
 
 #Usage of argparse to take usage method 
@@ -22,8 +23,24 @@ user = getpass.getuser()
 #Function rename : replacing spaces to -
 def renamer(files):
     os.chdir(location)
-    for file in files:
-        os.rename(file, file.replace(" ", "-").lower())
+    for file in files:        
+        ext = os.path.splitext(file)
+        #print(ext[0])
+        counter = 1
+        for picture_ext in pictures:
+            if picture_ext in file:
+                new_name = f'Image_{counter}{ext[1]}'
+                os.rename(file, new_name)
+                os.rename(file, file.replace(" ", "-").lower())
+            counter += 1
+        for music_ext in music:
+            if music_ext in file:
+                new_name = f'Music_{counter}{ext[1]}'
+                os.rename(file, new_name)
+                os.rename(file, file.replace(" ", "-").lower())
+            counter += 1
+
+
     
 #Function who sort files 
 def sort_files():
@@ -31,8 +48,8 @@ def sort_files():
     directory_names = ['Images', 'archives', 'Music' , 'Packages', 'Images_Disques']
     #Create directories if they are not in the user directory
     for directory in directory_names:
-        if not os.path.exists(location_dest+directory):
-         os.makedirs(location_dest+directory)
+        if not os.path.exists(f'{location_dest}{directory}'):
+            os.makedirs(location_dest+directory)
   
     #Organise files by extension
     for file in files:
