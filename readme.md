@@ -11,6 +11,7 @@ The script itself take in arguments to run differents functions.
 - Sort files and move them to their own directory (ex : Images in /home/<user>/Images ; Music in /home/<user>/Music ..ect)
   it sort : Images ; Musics ; Package(.deb, .pkg, .rpm...) ; Disk Images(.iso, .img, .vdi...) ; Archives(.zip, .tar, .xz...).
 - If the directory does not exist, it create it.
+- The user can indicate a directory but by default he will go to Downloads dir
 # How to use
   Usage
   
