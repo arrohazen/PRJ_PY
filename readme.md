@@ -12,8 +12,8 @@ The script itself take in arguments to run differents functions.
   it sort : Images ; Musics ; Package(.deb, .pkg, .rpm...) ; Disk Images(.iso, .img, .vdi...) ; Archives(.zip, .tar, .xz...).
 - If the directory does not exist, it create it.
 # How to use
-  >Usage 
-   usage: renommeur_fichiers.py [-h] [-s] [-r] [-l LOCATION]
+  Usage 
+    usage: renommeur_fichiers.py [-h] [-s] [-r] [-l LOCATION]
 
     Choose a function (sorter, renamer, )
 
