@@ -13,7 +13,7 @@ The script itself take in arguments to run differents functions.
 - If the directory does not exist, it create it.
 # How to use
   >Usage 
-    usage: renommeur_fichiers.py [-h] [-s] [-r] [-l LOCATION]
+      usage: renommeur_fichiers.py [-h] [-s] [-r] [-l LOCATION]
 
     Choose a function (sorter, renamer, )
 
