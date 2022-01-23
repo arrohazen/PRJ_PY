@@ -12,14 +12,14 @@ The script itself take in arguments to run differents functions.
   it sort : Images ; Musics ; Package(.deb, .pkg, .rpm...) ; Disk Images(.iso, .img, .vdi...) ; Archives(.zip, .tar, .xz...).
 - If the directory does not exist, it create it.
 # How to use
-  > Usage 
-  usage: renommeur_fichiers.py [-h] [-s] [-r] [-l LOCATION]
+  >Usage 
+    usage: renommeur_fichiers.py [-h] [-s] [-r] [-l LOCATION]
 
-  Choose a function (sorter, renamer, )
+    Choose a function (sorter, renamer, )
 
-  optional arguments:
-    -h, --help            show this help message and exit
-    -s, --sorter          Sorter of files by extension
-    -r, --rename          Renaming files : replace spaces to -
-    -l LOCATION, --location LOCATION
-                          Giving a directory location
+    optional arguments:
+      -h, --help            show this help message and exit
+      -s, --sorter          Sorter of files by extension
+      -r, --rename          Renaming files : replace spaces to -
+      -l LOCATION, --location LOCATION
+                            Giving a directory location
