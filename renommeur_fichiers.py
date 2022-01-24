@@ -31,15 +31,15 @@ def renamer(files):
         for picture_ext in pictures:
             if picture_ext in file:
                 new_name = f'Image_{counter}{ext[1]}'
-                os.rename(file, new_name)
-               
+                os.rename(file, new_name)    
             counter += 1
+
         for music_ext in music:
             if music_ext in file:
                 new_name = f'Music_{counter}{ext[1]}'
                 os.rename(file, new_name)
-                
             counter += 1
+            
         for extension in extensions_main:
             if extension in file:
                 os.rename(file, file.replace(" ", "-").lower())
