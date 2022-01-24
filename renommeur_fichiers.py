@@ -17,6 +17,7 @@ pictures = ['.jpg', '.jpeg', '.png', '.bmp', '.gif']
 packages = ['.deb', '.rpm', '.npm', '.snap','.exe', '.dmg', '.pkg', '.apk']
 archives = ['.zip', '.tar', '.xz', '.gz']
 disk_img = ['.iso', '.img', '.vdi', '.cso', '.rom']
+extensions_main = disk_img + archives + packages
 
 #Get the user to make 
 user = getpass.getuser()
@@ -31,15 +32,17 @@ def renamer(files):
             if picture_ext in file:
                 new_name = f'Image_{counter}{ext[1]}'
                 os.rename(file, new_name)
-                os.rename(file, file.replace(" ", "-").lower())
+               
             counter += 1
         for music_ext in music:
             if music_ext in file:
                 new_name = f'Music_{counter}{ext[1]}'
                 os.rename(file, new_name)
-                os.rename(file, file.replace(" ", "-").lower())
+                
             counter += 1
-
+        for extension in extensions_main:
+            if extension in file:
+                os.rename(file, file.replace(" ", "-").lower())
 
     
 #Function who sort files 
