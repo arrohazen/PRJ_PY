@@ -124,4 +124,4 @@ elif args.rename and not args.location:
     print(f'{"Your files have been renamed : "}{os.listdir(location)}') 
 
 else:
-    print(f'{"Please choose one argument!"}')
+    print(f'{"Please choose one argument! renommeur_fichiers.py -h to display help"}')
